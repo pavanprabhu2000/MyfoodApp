@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "foodorder")
 public class FoodOrder {
@@ -19,7 +21,9 @@ public class FoodOrder {
 	private int id;
 	private String status;
 	private float totalPrice;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime orderCreatedTime;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime orderDeliveryTime;
 	private String customerName;
 	private long contactNumber;

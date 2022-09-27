@@ -2,6 +2,7 @@ package com.clarivate.foodapp.dto;
 
 import java.util.List;
 
+import javax.management.loading.PrivateClassLoader;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,10 +21,35 @@ public class Menu {
 	private int id;
 	
 	@OneToMany(mappedBy = "menu")
-	List<FoodProduct> foodProducts;
+	private List<FoodProduct> foodProducts;
 	
 	@OneToOne
 	@JoinColumn(name = "user")
-	User user;
+	private User user;
+
+	public List<FoodProduct> getFoodProducts() {
+		return foodProducts;
+	}
+
+	public void setFoodProducts(List<FoodProduct> foodProducts) {
+		this.foodProducts = foodProducts;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 
 }

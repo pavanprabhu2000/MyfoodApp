@@ -1,12 +1,15 @@
 package com.clarivate.foodapp.dto;
 
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
 @Entity
 public class User {
 	@Id
@@ -16,7 +19,12 @@ public class User {
 	private String email;
 	private String password;
 	private String role;
-
+	@OneToOne
+	Menu menu;
+	
+	
+	@OneToMany(mappedBy="user")
+	List<FoodOrder> foodOrders;
 	
 	
 

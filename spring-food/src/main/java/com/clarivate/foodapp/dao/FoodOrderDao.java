@@ -3,6 +3,7 @@ package com.clarivate.foodapp.dao;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.clarivate.foodapp.dto.FoodOrder;
@@ -10,7 +11,7 @@ import com.clarivate.foodapp.repo.FoodOrderRepo;
 
 @Repository
 public class FoodOrderDao {
-
+	@Autowired
 	FoodOrderRepo foodOrderRepo;
 
 	public FoodOrder saveOrder(FoodOrder foodOrder) {
@@ -40,5 +41,10 @@ public class FoodOrderDao {
 			return "Food order with ID:"+ id +" doesn't exist";
 		}
 	}
+	
+	public FoodOrder updateFoodOrder(FoodOrder id) {
+		
+		return foodOrderRepo.save(id);
 
+}
 }
